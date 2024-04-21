@@ -10,7 +10,8 @@ class AnimatedAlignWidget extends StatefulWidget {
 }
 
 class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
-  Alignment textAlignment = Alignment.centerLeft;
+
+  Alignment imageAlignment = Alignment.center;
 
   @override
   Widget build(BuildContext context) {
@@ -20,33 +21,32 @@ class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
         title: Text(widget.title),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: double.infinity,
-            height: 300,
-            child: AnimatedAlign(
-              duration: const Duration(milliseconds: 300),
-              alignment: textAlignment,
-              curve: Curves.easeInQuint,
-              child: const Text(
-                'Some Text',
-              ),
+          AnimatedAlign(
+            alignment: imageAlignment,
+            duration: const Duration(milliseconds: 300),
+            child: Image.asset(
+              "assets/icons/bird.png",
+              height: 80,
+              width: 80,
             ),
           ),
           const SizedBox(
+            width: double.infinity,
             height: 20,
           ),
           ElevatedButton(
             onPressed: () {
               setState(() {
-                if(textAlignment == Alignment.center){
-                  textAlignment = Alignment.bottomLeft;
+                if(imageAlignment == Alignment.bottomLeft){
+                  imageAlignment = Alignment.bottomRight;
                 }else{
-                  textAlignment = Alignment.center;
+                  imageAlignment = Alignment.bottomLeft;
                 }
               });
             },
-            child: const Text('Change Alignment'),
+            child: const Text("Change Alignment"),
           ),
         ],
       ),
