@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -13,15 +12,13 @@ class AnimatedContainerWidget extends StatefulWidget {
 
 class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
 
-  List<Color> colors = [Colors.yellow, Colors.green, Colors.blue, Colors.grey, Colors.greenAccent, Colors.deepOrange, Colors.deepPurple, Colors.brown, Colors.red];
-  List<Alignment> alignments = [Alignment.center, Alignment.topLeft, Alignment.centerLeft, Alignment.bottomLeft, Alignment.topRight, Alignment.centerRight, Alignment.bottomRight];
+  List<Color> colors  = [Colors.red, Colors.green, Colors.brown, Colors.blue, Colors.purple, Colors.greenAccent, Colors.teal];
+  List<Alignment> alignments = [Alignment.centerRight, Alignment.centerLeft, Alignment.topRight, Alignment.topLeft, Alignment.bottomLeft, Alignment.bottomRight];
+  Color bgColor = Colors.red;
+  double width = 100, height = 100;
+  Alignment alignment = Alignment.center;
+  EdgeInsets padding = EdgeInsets.zero;
 
-  double containerHeight = 100, containerWidth = 100;
-  Color containerColor = Colors.green;
-  Alignment containerAlignment = Alignment.center;
-  EdgeInsets containerPadding = EdgeInsets.zero;
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,36 +30,37 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AnimatedContainer(
-            height: containerHeight,
-            width: containerWidth,
-            color: containerColor,
-            alignment: containerAlignment,
-            padding: containerPadding,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInQuint,
-            child: const Text(
-              'Some Text',
+            padding: padding,
+            alignment: alignment,
+            color: bgColor,
+            width: width,
+            height: height,
+            duration: const Duration(milliseconds: 400),
+            child: Image.asset(
+              'assets/icons/bird.png',
+              height: 80,
+              width: 80,
             ),
           ),
           const SizedBox(
-            width: double.infinity,
             height: 20,
+            width: double.infinity,
           ),
           ElevatedButton(
             onPressed: () {
               setState(() {
-                containerHeight = 100 + Random().nextInt(400).toDouble();
-                containerWidth = 100 + Random().nextInt(500).toDouble();
-                containerColor = colors[Random().nextInt(9)];
-                containerAlignment = alignments[Random().nextInt(7)];
-                if(containerPadding == EdgeInsets.zero){
-                  containerPadding = EdgeInsets.all(10);
+                width = 100 + Random().nextInt(400).toDouble();
+                height = 100 + Random().nextInt(500).toDouble();
+                bgColor = colors[Random().nextInt(7)];
+                alignment = alignments[Random().nextInt(6)];
+                if(padding == EdgeInsets.zero){
+                  padding = EdgeInsets.all(Random().nextInt(15).toDouble());
                 }else{
-                  containerPadding = EdgeInsets.zero;
+                  padding = EdgeInsets.zero;
                 }
               });
             },
-            child: const Text('Change Alignment'),
+            child: const Text('Animate'),
           ),
         ],
       ),
