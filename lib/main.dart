@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/widgets/animated_align_widget.dart';
 import 'package:flutter_animations/widgets/animated_container_widget.dart';
+import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,7 +66,18 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Animated Container'),
             ),
-            const SizedBox(height: 20,)
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AnimatedOpacityWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Animated Opacity'),
+            ),
+            const SizedBox(height: 20,),
           ],
         ),
       ),
