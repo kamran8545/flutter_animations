@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedOpacityWidget extends StatefulWidget {
-  const AnimatedOpacityWidget({Key? key, required this.title}) : super(key: key);
+  const AnimatedOpacityWidget({super.key, required this.title});
   final String title;
 
   @override
@@ -10,7 +9,6 @@ class AnimatedOpacityWidget extends StatefulWidget {
 }
 
 class _AnimatedOpacityWidgetState extends State<AnimatedOpacityWidget> {
-
   double opacity = 1;
 
   @override
@@ -39,9 +37,9 @@ class _AnimatedOpacityWidgetState extends State<AnimatedOpacityWidget> {
           ElevatedButton(
             onPressed: () {
               setState(() {
-                if(opacity == 0){
+                if (opacity == 0) {
                   opacity = 1;
-                }else{
+                } else {
                   opacity = 0;
                 }
               });
