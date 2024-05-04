@@ -3,6 +3,7 @@ import 'package:flutter_animations/widgets/animated_align_widget.dart';
 import 'package:flutter_animations/widgets/animated_container_widget.dart';
 import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
 import 'package:flutter_animations/widgets/animated_padding_widget.dart';
+import 'package:flutter_animations/widgets/animated_rotation_widget.dart';
 import 'package:flutter_animations/widgets/animated_scale_widget.dart';
 
 void main() {
@@ -100,6 +101,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Animated Scale'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AnimatedRotationWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Animated Rotation'),
             ),
             const SizedBox(height: 20,),
           ],
