@@ -5,6 +5,7 @@ import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
 import 'package:flutter_animations/widgets/animated_padding_widget.dart';
 import 'package:flutter_animations/widgets/animated_rotation_widget.dart';
 import 'package:flutter_animations/widgets/animated_scale_widget.dart';
+import 'package:flutter_animations/widgets/animated_slide_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -112,6 +113,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Animated Rotation'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AnimatedSlideWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Animated Slide'),
             ),
             const SizedBox(height: 20,),
           ],
