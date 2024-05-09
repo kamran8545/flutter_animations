@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/widgets/animated_align_widget.dart';
 import 'package:flutter_animations/widgets/animated_container_widget.dart';
+import 'package:flutter_animations/widgets/animated_cross_fade_widget.dart';
 import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
 import 'package:flutter_animations/widgets/animated_padding_widget.dart';
 import 'package:flutter_animations/widgets/animated_rotation_widget.dart';
@@ -136,6 +137,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Animated Size'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AnimatedCrossFadeWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Animated Cross Fade'),
             ),
             const SizedBox(height: 20,),
           ],
