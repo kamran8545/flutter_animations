@@ -4,6 +4,7 @@ import 'package:flutter_animations/widgets/animated_container_widget.dart';
 import 'package:flutter_animations/widgets/animated_cross_fade_widget.dart';
 import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
 import 'package:flutter_animations/widgets/animated_padding_widget.dart';
+import 'package:flutter_animations/widgets/animated_positioned_widget.dart';
 import 'package:flutter_animations/widgets/animated_rotation_widget.dart';
 import 'package:flutter_animations/widgets/animated_scale_widget.dart';
 import 'package:flutter_animations/widgets/animated_size_widget.dart';
@@ -47,10 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const SizedBox(height: 30, width: double.infinity,),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -148,6 +150,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Animated Cross Fade'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AnimatedPositionedWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Animated Positioned'),
             ),
             const SizedBox(height: 20,),
           ],
