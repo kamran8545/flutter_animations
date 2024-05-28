@@ -10,7 +10,7 @@ class AnimatedSwitcherWidget extends StatefulWidget {
 }
 
 class _AnimatedSwitcherWidgetState extends State<AnimatedSwitcherWidget> {
-  Widget switcherWidget = Image.asset('assets/icons/bird.png');
+  Widget switcherChild = Image.asset('assets/icons/bird.png', width: 80, height: 80);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _AnimatedSwitcherWidgetState extends State<AnimatedSwitcherWidget> {
           const SizedBox(height: 120),
           AnimatedSwitcher(
             duration: const Duration(milliseconds: 400),
-            child: switcherWidget,
+            child: switcherChild,
             transitionBuilder: (Widget child, Animation<double> animation) {
               return RotationTransition(
                 turns: animation,
@@ -41,10 +41,10 @@ class _AnimatedSwitcherWidgetState extends State<AnimatedSwitcherWidget> {
           ElevatedButton(
             onPressed: () {
               setState(() {
-                if (switcherWidget is Image) {
-                  switcherWidget = const Text('New Widget');
+                if (switcherChild is Image) {
+                  switcherChild = const Text("New Widget");
                 } else {
-                  switcherWidget = Image.asset('assets/icons/bird.png');
+                  switcherChild = Image.asset('assets/icons/bird.png', width: 80, height: 80);
                 }
               });
             },
