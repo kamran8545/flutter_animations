@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animations/widgets/animated_align_widget.dart';
 import 'package:flutter_animations/widgets/animated_container_widget.dart';
 import 'package:flutter_animations/widgets/animated_cross_fade_widget.dart';
+import 'package:flutter_animations/widgets/animated_default_text_style_widget.dart';
 import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
 import 'package:flutter_animations/widgets/animated_padding_widget.dart';
 import 'package:flutter_animations/widgets/animated_physical_model_widget.dart';
@@ -185,6 +186,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Physical'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AnimatedDefaultTextStyleWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Default text style'),
             ),
             const SizedBox(height: 20,),
           ],
