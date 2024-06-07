@@ -13,6 +13,7 @@ import 'package:flutter_animations/widgets/animated_size_widget.dart';
 import 'package:flutter_animations/widgets/animated_slide_widget.dart';
 import 'package:flutter_animations/widgets/animated_switcher_widget.dart';
 import 'package:flutter_animations/widgets/animated_theme_widget.dart';
+import 'package:flutter_animations/widgets/tween_animation_builder_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -209,6 +210,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Animated Theme'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => TweenAnimationBuilderWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Tween Animation Builder'),
             ),
             const SizedBox(height: 20,),
           ],
