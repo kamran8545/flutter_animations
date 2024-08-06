@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animations/widgets/animated_align_widget.dart';
-import 'package:flutter_animations/widgets/animated_container_widget.dart';
-import 'package:flutter_animations/widgets/animated_cross_fade_widget.dart';
-import 'package:flutter_animations/widgets/animated_default_text_style_widget.dart';
-import 'package:flutter_animations/widgets/animated_opacity_widget.dart';
-import 'package:flutter_animations/widgets/animated_padding_widget.dart';
-import 'package:flutter_animations/widgets/animated_physical_model_widget.dart';
-import 'package:flutter_animations/widgets/animated_positioned_widget.dart';
-import 'package:flutter_animations/widgets/animated_rotation_widget.dart';
-import 'package:flutter_animations/widgets/animated_scale_widget.dart';
-import 'package:flutter_animations/widgets/animated_size_widget.dart';
-import 'package:flutter_animations/widgets/animated_slide_widget.dart';
-import 'package:flutter_animations/widgets/animated_switcher_widget.dart';
-import 'package:flutter_animations/widgets/animated_theme_widget.dart';
-import 'package:flutter_animations/widgets/tween_animation_builder_widget.dart';
+
+import 'animations/animated_widgets/animated_align_widget.dart';
+import 'animations/animated_widgets/animated_container_widget.dart';
+import 'animations/animated_widgets/animated_cross_fade_widget.dart';
+import 'animations/animated_widgets/animated_default_text_style_widget.dart';
+import 'animations/animated_widgets/animated_opacity_widget.dart';
+import 'animations/animated_widgets/animated_padding_widget.dart';
+import 'animations/animated_widgets/animated_physical_model_widget.dart';
+import 'animations/animated_widgets/animated_positioned_widget.dart';
+import 'animations/animated_widgets/animated_rotation_widget.dart';
+import 'animations/animated_widgets/animated_scale_widget.dart';
+import 'animations/animated_widgets/animated_size_widget.dart';
+import 'animations/animated_widgets/animated_slide_widget.dart';
+import 'animations/animated_widgets/animated_switcher_widget.dart';
+import 'animations/animated_widgets/animated_theme_widget.dart';
+import 'animations/animated_widgets/tween_animation_builder_widget.dart';
+import 'animations/transtions_wdigets/decorated_box_transition_widget.dart';
+import 'animations/transtions_wdigets/fade_transition_widget.dart';
+import 'animations/transtions_wdigets/positioned_transition_widget.dart';
+import 'animations/transtions_wdigets/rotation_transition_widget.dart';
+import 'animations/transtions_wdigets/scale_transition_widget.dart';
+import 'animations/transtions_wdigets/size_transition_widget.dart';
+import 'animations/transtions_wdigets/slide_transition_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -221,6 +229,83 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
               child: const Text('Tween Animation Builder'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => DecoratedBoxTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Decorated Box Transition'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => FadeTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Fade Transition'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => PositionedTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Positioned Transition'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => RotationTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Rotation Transition'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ScaleTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Scale Transition'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SizeTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Size Transition'),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SlideTransitionWidget(title: widget.title),
+                  ),
+                );
+              },
+              child: const Text('Slide Transition'),
             ),
             const SizedBox(height: 20,),
           ],
